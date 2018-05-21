@@ -1,0 +1,260 @@
+JavaScript is a lightweight, interpreted programming language. It is designed for creating network-centric applications. It is complimentary to and integrated with Java. JavaScript is very easy to implement because it is integrated with HTML
+
+
+===================JavaScript - Variables==========
+
+One of the most fundamental characteristics of a programming language is the set of data types it supports. These are the type of values that can be represented and manipulated in a programming language
+
+
+Numbers, eg. 123, 120.50 etc.
+
+Strings of text e.g. "This text string" etc.
+
+Boolean e.g. true or false.
+
+
+<script type="text/javascript">
+   <!--
+      var money;
+      var name;
+   //-->
+</script>
+
+==================Global Variables==============
+
+A global variable has global scope which means it can be defined anywhere in your JavaScript code.
+
+
+===============Local Variables======
+
+
+ <script type = "text/javascript">
+         <!--
+            var myVar = "global"; // Declare a global variable
+            function checkscope( ) {
+               var myVar = "local";  // Declare a local variable
+               document.write(myVar);
+            }
+         //-->
+      </script>
+
+===================Strings================
+
+
+
+var val = new String(string);
+
+============String String Methods========
+
+Here is a list of the methods available in String object along with their description.
+
+
+=============charAt() ==========
+Syntax
+
+string.charAt(index);
+
+
+ <script type="text/javascript">
+
+         var str = new String( "This is string" );
+
+         document.writeln("str.charAt(0) is:" + str.charAt(0)); 
+
+         document.writeln("<br />str.charAt(1) is:" + str.charAt(1)); 
+
+         document.writeln("<br />str.charAt(2) is:" + str.charAt(2)); 
+
+         document.writeln("<br />str.charAt(3) is:" + str.charAt(3)); 
+
+         document.writeln("<br />str.charAt(4) is:" + str.charAt(4)); 
+
+         document.writeln("<br />str.charAt(5) is:" + str.charAt(5)); 
+      </script>
+
+OUTPUT:
+
+str.charAt(0) is:T 
+str.charAt(1) is:h 
+str.charAt(2) is:i 
+str.charAt(3) is:s 
+str.charAt(4) is: 
+str.charAt(5) is:i 
+
+=====================charCodeAt()=========
+
+This method returns a number indicating the Unicode value of the character at the given index.
+
+
+
+Syntax:
+
+string.charCodeAt(index);
+
+
+ <script type="text/javascript">
+         var str = new String( "This is string" );
+
+         document.write("str.charCodeAt(0) is:" + str.charCodeAt(0)); 
+
+         document.write("<br />str.charCodeAt(1) is:" + str.charCodeAt(1)); 
+         document.write("<br />str.charCodeAt(2) is:" + str.charCodeAt(2)); 
+         document.write("<br />str.charCodeAt(3) is:" + str.charCodeAt(3)); 
+         document.write("<br />str.charCodeAt(4) is:" + str.charCodeAt(4)); 
+         document.write("<br />str.charCodeAt(5) is:" + str.charCodeAt(5)); 
+      </script>
+
+
+OUTPUT:
+str.charCodeAt(0) is:84
+str.charCodeAt(1) is:104
+str.charCodeAt(2) is:105
+str.charCodeAt(3) is:115
+str.charCodeAt(4) is:32
+str.charCodeAt(5) is:105 
+
+==================concat()===========
+
+Syntax
+
+
+string.concat(string2, string3[, ..., stringN]);
+
+
+ <script type="text/javascript">
+         var str1 = new String( "This is string one" );
+
+         var str2 = new String( "This is string two" );
+         var str3 = str1.concat( str2 );
+      
+         document.write("Concatenated String :" + str3); 
+      </script>
+
+
+Output:
+Concatenated String :This is string oneThis is string two.
+
+
+
+
+=============indexOf()================
+
+
+VThis method returns the index within the calling String object of the first occurrence of the specified value, starting the search at fromIndex or -1 if the value is not found.
+
+
+
+Syntax
+
+
+string.indexOf(searchValue[, fromIndex])
+
+
+
+searchValue  A string representing the value to search for.
+
+fromIndex  The location within the calling string to start the search from. It can be any integer between 0 and the length of the string. The default value is 0
+
+
+ <script type="text/javascript">
+         var str1 = new String( "This is string one" );
+         var index = str1.indexOf( "string" );
+         document.write("indexOf found String :" + index ); 
+         
+         document.write("<br />");
+         var index = str1.indexOf( "one" );
+         document.write("indexOf found String :" + index ); 
+      </script>
+
+
+OUTPUT:
+indexOf found String :8
+indexOf found String :15 
+
+
+=====================lastIndexOf()===========
+
+
+
+This method returns the index within the calling String object of the last occurrence of the specified value, starting the search at fromIndex or -1 if the value is not found.
+
+
+Syntax
+
+
+string.lastIndexOf(searchValue[, fromIndex])
+
+ var str1 = new String( "This is string one and again string" );
+         var index = str1.lastIndexOf( "string" );
+         document.write("lastIndexOf found String :" + index ); 
+         
+         document.write("<br />");
+         
+         var index = str1.lastIndexOf( "one" );
+         document.write("lastIndexOf found String :" + index ); 
+      </script>
+
+
+
+Output
+lastIndexOf found String :29
+lastIndexOf found String :15  
+
+================localeCompare()==================
+
+This method returns a number indicating whether a reference string comes before or after or is the same as the given string in sorted order.
+
+
+Syntax
+
+
+string.localeCompare( param )
+
+
+var str1 = new String( "This is beautiful string" );
+         var index = str1.localeCompare( "XYZ" );
+         document.write("localeCompare first :" + index ); 
+         
+         document.write("<br />" ); 
+         
+         var index = str1.localeCompare( "AbCD ?" );
+         document.write("localeCompare second :" + index ); 
+
+
+
+Output
+localeCompare first :-1
+localeCompare second :1 
+
+
+===================match()===========
+
+This method is used to retrieve the matches when matching a string against a regular expression.
+
+
+Syntax
+
+
+string.match( param )
+
+
+ <script type="text/javascript">
+         var str = "For more information, see Chapter 3.4.5.1";
+
+         var re = /(chapter \d+(\.\d)*)/i;
+
+         var found = str.match( re );
+         
+         document.write(found ); 
+      </script>
+
+
+Output
+Chapter 3.4.5.1,Chapter 3.4.5.1,.1
+
+
+	
+
+
+
+

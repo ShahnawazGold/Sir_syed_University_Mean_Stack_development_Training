@@ -1,0 +1,189 @@
+==================For Loop===========
+
+Syntax
+The syntax of for loop is JavaScript is as follows 
+
+for (initialization; test condition; iteration statement){
+   Statement(s) to be executed if test condition is true
+}
+
+====================
+
+
+ <script type="text/javascript">
+         <!--
+            var count;
+            document.write("Starting Loop" + "<br />");
+         
+            for(count = 0; count < 10; count++){
+               document.write("Current Count : " + count );
+               document.write("<br />");
+            }
+         
+            document.write("Loop stopped!");
+         //-->
+      </script>
+
+===========OUTPUT=========
+
+Output
+Starting Loop
+Current Count : 0
+Current Count : 1
+Current Count : 2
+Current Count : 3
+Current Count : 4
+Current Count : 5
+Current Count : 6
+Current Count : 7
+Current Count : 8
+Current Count : 9
+
+================================= While Loops=================
+
+
+
+while (expression){
+   Statement(s) to be executed if expression is true
+}
+
+
+ <!--
+            var count = 0;
+            document.write("Starting Loop ");
+         
+            while (count < 10){
+               document.write("Current Count : " + count + "<br />");
+               count++;
+            }
+         
+            document.write("Loop stopped!");
+         //-->
+
+OUT[UT:
+
+
+Starting Loop
+Current Count : 0
+Current Count : 1
+Current Count : 2
+Current Count : 3
+Current Count : 4
+Current Count : 5
+Current Count : 6
+Current Count : 7
+Current Count : 8
+Current Count : 9
+
+
+======================The do...while Loop==========
+
+
+The do...while loop is similar to the while loop except that the condition check happens at the end of the loop. This means that the loop will always be executed at least once, even if the condition is false.
+
+
+do{
+   Statement(s) to be executed;
+} while (expression);
+
+
+<!--
+            var count = 0;
+            
+            document.write("Starting Loop" + "<br />");
+            do{
+               document.write("Current Count : " + count + "<br />");
+               count++;
+            }
+            
+            while (count < 5);
+            document.write ("Loop stopped!");
+         //-->
+
+
+OUTPUT:
+Starting Loop
+Current Count : 0 
+Current Count : 1 
+Current Count : 2 
+Current Count : 3 
+Current Count : 4
+========================for...in loop=========
+
+
+
+
+
+for (variablename in object){
+   statement or block to execute
+}
+
+
+<!--
+            var aProperty;
+            document.write("Navigator Object Properties<br /> ");
+         
+            for (aProperty in navigator) {
+               document.write(aProperty);
+               document.write("<br />");
+            }
+            document.write ("Exiting from the loop!");
+         //-->
+
+
+
+=======================Loop Control============
+
+
+
+
+The break Statement
+The break statement, which was briefly introduced with the switch statement, is used to exit a loop early, breaking out of the enclosing curly braces.
+
+
+
+
+<script type="text/javascript">
+         <!--
+         var x = 1;
+         document.write("Entering the loop<br /> ");
+         
+         while (x < 20)
+         {
+            if (x == 5){
+               break; // breaks out of loop completely
+            }
+            x = x + 1;
+            document.write( x + "<br />");
+         }
+         
+         document.write("Exiting the loop!<br /> ");
+         //-->
+      </script>
+
+
+
+=======================The continue Statement============
+
+
+<script type="text/javascript">
+         <!--
+            var x = 1;
+            document.write("Entering the loop<br /> ");
+         
+            while (x < 10)
+            {
+               x = x + 1;
+               
+               if (x == 5){
+                  continue; // skip rest of the loop body
+               }
+               document.write( x + "<br />");
+            }
+         
+            document.write("Exiting the loop!<br /> ");
+         //-->
+      </script>
+
+=======================
+
