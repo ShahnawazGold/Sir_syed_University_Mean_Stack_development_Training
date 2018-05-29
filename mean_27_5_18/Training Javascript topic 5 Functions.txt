@@ -1,0 +1,151 @@
+============Functions============
+
+
+===========Calling a Function=========
+
+
+
+   
+      <script type="text/javascript">
+         function sayHello()
+         {
+            document.write ("Hello there!");
+         }
+      </script>
+      
+   </head>
+   <body>
+      <p>Click the following button to call the function</p>
+      
+      <form>
+         <input type="button" onclick="sayHello()" value="Say Hello">
+      </form>
+
+=================Function Parameters===========
+
+Till now, we have seen functions without parameters. But there is a facility to pass different parameters while calling a function. These passed parameters can be captured inside the function and any manipulation can be done over those parameters. A function can take multiple parameters separated by comma.
+
+
+
+ <script type="text/javascript">
+
+         function sayHello(name, age)
+         {
+            document.write (name + " is " + age + " years old.");
+         }
+
+      </script>
+      
+   </head>
+   <body>
+      <p>Click the following button to call the function</p>
+      
+      <form>
+         <input type="button" onclick="sayHello('Zara', 7)" value="Say Hello">
+      </form>
+      
+      <p>Use different parameters inside the function and then try...</p>
+   </body>
+
+===============
+
+
+=====================The return Statement================
+
+
+
+A JavaScript function can have an optional return statement. This is required if you want to return a value from a function. This statement should be the last statement in a function
+
+
+
+<script type="text/javascript">
+
+         function concatenate(first, last)
+         {
+            var full;
+            full = first + last;
+            return full;
+         }
+         
+         function secondFunction()
+         {
+            var result;
+            result = concatenate('S', 'KHA');
+            document.write (result );
+         }
+      </script>
+      
+   </head>
+   
+   <body>
+      <p>Click the following button to call the function</p>
+      
+      <form>
+         <input type="button" onclick="secondFunction()" value="Call Function">
+      </form>
+
+
+
+============Output
+S KHAN
+
+
+
+================NESTED FUNCTIONS==========
+
+<script type="text/javascript">
+         <!--
+            function hypotenuse(a, b) {
+               function square(x) { return x*x; }
+               return Math.sqrt(square(a) + square(b));
+            }
+            
+            function secondFunction(){
+               var result;
+               result = hypotenuse(1,2);
+               document.write ( result );
+            }
+         //-->
+      </script>
+      
+   </head>
+   <body>
+      <p>Click the following button to call the function</p>
+      
+      <form>
+         <input type="button" onclick="secondFunction()" value="Call Function">
+      </form>
+      
+      <p>Use different parameters inside the function and then try...</p>
+   
+   </body>
+
+===================Function Literals========
+
+
+
+<script type="text/javascript">
+         <!--
+            var func = function(x,y){ return x*y };
+            
+            function secondFunction(){
+               var result;
+               result = func(10,20);
+               document.write ( result );
+            }
+         //-->
+      </script>
+      
+   </head>
+   <body>
+      <p>Click the following button to call the function</p>
+      
+      <form>
+         <input type="button" onclick="secondFunction()" value="Call Function">
+      </form>
+      
+      <p>Use different parameters inside the function and then try...</p>
+   
+   </body>
+
+=================done=============

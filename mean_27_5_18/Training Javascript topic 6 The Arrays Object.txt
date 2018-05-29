@@ -1,0 +1,288 @@
+The Arrays Object
+
+The Array object lets you store multiple values in a single variable. It stores a fixed-size sequential collection of elements of the same type
+
+var fruits = new Array( "apple", "orange", "mango" );
+
+
+var fruits = [ "apple", "orange", "mango" ];
+
+
+
+// empty array with no elements
+
+ var empty = [];       
+                
+// array with 2 string elements
+
+var days = ["Sunday", "Monday"];
+      
+// array with elements of different types
+
+var mixed = [false, 2.70, "Hello"];   
+
+// elements can be arbitrary expressions
+
+var suffix = "tree";
+
+var trees = ["Oak" + suffix, "Elm" + suffix]; 
+ 
+// 2 dimensional array with object literals
+
+var array2 = [[1,{x:1, y:2}], [2, {x:3, y:4}]];
+    
+// the 3rd element is undefined
+
+var colors = ["Red", "Green", undefined];  
+  
+// no value in the 1st element, it is undefined
+
+var hobbies = [,"Art"];              
+
+===================Array unshift() Method============
+
+Description:
+
+Javascript array unshift() method adds one or more elements to the beginning of an array and returns the new length of the array
+
+Syntax
+Its syntax is as follows 
+
+array.unshift( element1, ..., elementN );
+
+
+<script type="text/javascript">
+         var arr = new Array("orange", "mango", "banana", "sugar");
+         
+         var length = arr.unshift("water");
+         document.write("Returned array is : " + arr );
+         document.write("<br /> Length of the array is : " + length );
+      </script>
+
+Output
+Returned array is : water,orange,mango,banana,sugar
+Length of the array is : 5 
+
+=====================Array toString() Method=============
+
+Description
+Javascript array toString() method returns a string representing the source code of the specified array and its elements.
+
+Syntax
+Its syntax is as follows 
+
+array.toString();
+
+  var arr = new Array("orange", "mango", "banana", "sugar");
+         
+         var str = arr.toString();
+         document.write("Returned string is : " + str );
+
+Output
+
+Returned string is : orange,mango,banana,sugar 
+
+
+==================Array splice() Method=================
+
+
+Description
+
+Javascript array splice() method changes the content of an array, adding new elements while removing old elements.
+
+Syntax
+Its syntax is as follows 
+
+array.splice(index, howMany, [element1][, ..., elementN]);
+
+
+ var arr = ["orange", "mango", "banana", "sugar", "tea"];
+         
+         var removed = arr.splice(2, 0, "water");
+
+         document.write("After adding 1: " + arr );
+
+         document.write("<br />removed is: " + removed);
+         
+         removed = arr.splice(3, 1);
+
+         document.write("<br />After adding 1: " + arr );
+
+         document.write("<br />removed is: " + removed);
+
+		
+
+Output
+
+After adding 1: orange,mango,water,banana,sugar,tea
+removed is: 
+After adding 1: orange,mango,water,sugar,tea
+removed is: banana 
+
+===============Array sort() Method===========
+
+Description
+
+	Javascript array sort() method sorts the elements of an array.
+
+Syntax
+Its syntax is as follows 
+
+array.sort( compareFunction );
+
+ var arr = new Array("orange", "mango", "banana", "sugar");
+         
+         var sorted = arr.sort();
+         document.write("Returned string is : " + sorted );
+
+Output
+Returned array is : banana,mango,orange,sugar
+
+
+=============== toSource() Method========
+
+
+Description
+
+Javascript array toSource() method returns a string representing the source code of the array. This method is supported by Mozilla.
+
+Syntax
+Its syntax is as follows 
+
+array.toSource();
+
+
+var arr = new Array("orange", "mango", "banana", "sugar");
+
+var str = arr.toSource();
+document.write("Returned string is : " + str );
+
+
+Output
+Returned string is : ["orange", "mango", "banana", "sugar"]
+
+
+====================Array slice() Method==========
+
+
+Description
+Javascript array slice() method extracts a section of an array and returns a new array.
+
+Syntax
+Its syntax is as follows 
+
+array.slice( begin [,end] );
+
+
+ <script type="text/javascript">
+         var arr = ["orange", "mango", "banana", "sugar", "tea"];
+         document.write("arr.slice( 1, 2) : " + arr.slice( 1, 2) ); 
+         document.write("<br />arr.slice( 1, 3) : " + arr.slice( 1, 3) ); 
+      </script>
+
+
+
+Output
+arr.slice( 1, 2) : mango
+arr.slice( 1, 3) : mango,banana 
+
+
+
+===================Array shift() Method=========
+
+
+Description
+Javascript array shift()method removes the first element from an array and returns that element.
+
+Syntax
+Its syntax is as follows 
+
+array.shift();
+
+
+var element = [105, 1, 2, 3].shift();
+         document.write("Removed element is : " + element ); 
+
+Output
+Removed element is : 105 
+
+=================Array reverse() Method===========
+
+
+Description
+Javascript array reverse() mmethod reverses the element of an array. The first array element becomes the last and the last becomes the first.
+
+Syntax
+Its syntax is as follows 
+
+array.reverse();
+
+
+var arr = [0, 1, 2, 3].reverse();
+         document.write("Reversed array is : " + arr )
+
+
+Output
+Reversed array is : 3,2,1,0
+
+==================Array push() Method=======
+
+
+Description
+Javascript array push() method appends the given element(s) in the last of the array and returns the length of the new array.
+
+Syntax
+Its syntax is as follows 
+
+array.push(element1, ..., elementN); 
+
+
+ <script type="text/javascript">
+         var numbers = new Array(1, 4, 9);
+         
+         var length = numbers.push(10);
+         document.write("new numbers is : " + numbers ); 
+         
+         length = numbers.push(20);
+         document.write("<br />new numbers is : " + numbers ); 
+      </script>
+      
+
+Output
+new numbers is : 1,4,9,10
+new numbers is : 1,4,9,10,20 
+
+============== Array pop() Method===
+
+
+Description
+Javascript array pop() method removes the last element from an array and returns that element.
+
+Syntax
+Its syntax is as follows 
+
+array.pop();
+
+
+<script type="text/javascript">
+         var numbers = [1, 4, 9];
+         
+         var element = numbers.pop();
+         document.write("element is : " + element ); 
+         
+         var element = numbers.pop();
+         document.write("<br />element is : " + element );
+      </script>
+
+
+Output
+element is : 9
+
+
+
+
+
+
+
+
+
