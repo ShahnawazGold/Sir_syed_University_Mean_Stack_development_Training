@@ -1,0 +1,119 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script> -->
+</head>
+<body>
+    <script>
+//     var rect = {};
+//     console.log(rect);
+
+    
+// rect.width = 20;
+
+// rect.height = 10;
+// console.log(rect.height);
+// ========= xmple 3========
+
+
+var rect = {
+
+width: 20, 
+height: 10,
+
+color: { 
+     red: 0,
+     green: 255,
+      blue: 128 
+      }, // object property
+
+    getArea: function() {                     // method property 
+    return this.width * this.height;
+    }
+};
+
+console.log(rect);
+console.log(rect.color.red);
+console.log(rect.color.green);
+console.log(rect.getArea());
+
+//=====================Getting property names with for-in=========
+
+// var car = { make: "Toyota", model: "Camry" };
+
+// for (var prop in car) {
+//    // => make: Toyota, and model: Camry
+//   console.log(prop);  
+// }
+
+
+
+// var car = {
+
+// make: "Toyota", 
+// model: "Camry", 
+
+// print : function() {
+//     alert(this.make + " " + this.model);
+// }
+// };
+
+// for (var prop in car) {
+
+// if (typeof car[prop] !== "function") {
+//   alert(prop);         // => make, and model
+// }
+// }
+
+///======== construct function =========
+
+// function Book(isbn) {
+
+//     this.isbn = isbn;
+
+//     this.getIsbn = function () {
+//         return "Isbn is " + this.isbn;
+//     };
+// }
+
+// var rsult = new Book("7878");
+
+// console.log(rsult.getIsbn());
+
+var account = {
+
+    bank: "Bank of America",   // just the default value
+    getBank: function() {
+        return this.bank;
+    }
+};
+
+var savings = {};
+
+savings.accountHolders = []; 
+
+savings.getAccountHolders = function() {
+   return this.accountHolders;
+}
+
+savings.accountHolders.push("Jack Saver");
+
+savings.accountHolders.push("Mary Saver");
+
+alert(savings.getAccountHolders()[0]);      // => Jack Saver
+alert(savings.getAccountHolders()[1]);      // => Mary Saver
+alert(account.getBank());                   // => Bank of America
+savings.bank = "JP Morgan Chase";
+
+    
+    </script>
+</body>
+</html>
