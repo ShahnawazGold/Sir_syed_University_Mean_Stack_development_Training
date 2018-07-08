@@ -1,0 +1,106 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <script src="main.js"></script>
+    <script src="controller.js"></script>
+</head>
+<body>  
+
+        <!-- <div ng-app = ""  ng-init = "countries = [
+        {locale:'en-US',name:'United States'}, 
+        {locale:'en-GB',name:'United Kingdom'},
+         {locale:'en-FR',name:'France'} ]"> 
+        
+                 <p>Enter your Name: <input type = "text" ng-model = "name"></p>
+                 <p>Hello <span ng-bind = "name"></span>!</p>
+                 <p>List of Countries with locale:</p>
+            
+                 <ol>
+                    <li ng-repeat = "country in countries">
+                       {{ 'Country: ' + country.name + ', Locale: ' + country.locale }}
+                    </li>
+                 </ol>
+              </div> -->
+              <!-- <div ng-app = "" ng-init = "quantity = 1;cost = 30; student = {
+                firstname:'FAISL'
+                ,lastname:'KHAN'
+                ,rollno:101};
+                marks = [80,90,75,73,60]">
+                
+                         <p>Hello {{student.firstname + " " + student.lastname}}!</p>
+                         <p>Expense on Books : {{cost * quantity}} Rs</p>
+                         <p>Roll No: {{student.rollno}}</p>
+                         <p>Marks(Math): {{marks[3]}}</p>
+                      </div> -->
+
+             <!-- <div ng-app = "mainApp" ng-controller = "mainController">
+                            Enter first name: <input type = "text" ng-model = "student.firstName"><br><br>
+                            Enter last name: <input type = "text" ng-model = "student.lastName"><br>
+                            <br>
+                            
+                            You are entering: {{student.fullName()}}
+            </div>              -->
+
+            <div ng-app = "mainApp" ng-controller = "studentController">
+                    <table border = "0">
+                       <tr>
+                          <td>Enter first name:</td>
+                          <td><input type = "text" ng-model = "student.firstName"></td>
+                       </tr>
+                       
+                       <tr>
+                          <td>Enter last name: </td>
+                          <td><input type = "text" ng-model = "student.lastName"></td>
+                       </tr>
+                       
+                       <tr>
+                          <td>Enter fees: </td>
+                          <td><input type = "text" ng-model = "student.fees"></td>
+                       </tr>
+                       
+                       <tr>
+                          <td>Enter subject: </td>
+                          <td><input type = "text" ng-model = "subjectName"></td>
+                       </tr>
+                    </table>
+                    <br/>
+                    
+                    <table border = "0">
+                       <tr>
+                          <td>Name in Upper Case: </td><td>{{student.fullName() | uppercase}}</td>
+                       </tr>
+                    
+                       <tr>
+                          <td>Name in Lower Case: </td><td>{{student.fullName() | lowercase}}</td>
+                       </tr>
+                    
+                       <tr>
+                          <td>fees: </td><td>{{student.fees | currency}}
+                          </td>
+                       </tr>
+                           
+                       <tr>
+                          <td>Subject:</td>
+           
+                          <td>
+                             <ul>
+                                <li ng-repeat = "subject in student.subjects | filter: subjectName |orderBy:'marks'">
+                                   {{ subject.name + ', marks:' + subject.marks }}
+                                </li>
+                             </ul>
+                          </td>
+                       </tr>
+                    </table>
+                    
+                 </div>
+    
+</body>
+</html>

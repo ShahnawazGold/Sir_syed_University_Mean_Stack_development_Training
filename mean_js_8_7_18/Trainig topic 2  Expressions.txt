@@ -1,0 +1,346 @@
+======================AngularJS - Expressions================
+
+
+1)	Using numbers:
+
+		<p>Expense on Books : {{cost * quantity}} Rs</p>
+
+2)	Using strings:
+
+		<p>Hello {{student.firstname + " " + student.lastname}}!</p>
+
+3)	Using object:
+
+		<p>Roll No: {{student.rollno}}</p>
+
+4)	Using array:
+
+		<p>Marks(Math): {{marks[3]}}</p>
+
+=====================================
+
+ <div ng-app = "" ng-init = "quantity = 1;cost = 30; student = {
+firstname:'FAISL'
+,lastname:'KHAN'
+,rollno:101};
+marks = [80,90,75,73,60]">
+         <p>Hello {{student.firstname + " " + student.lastname}}!</p>
+         <p>Expense on Books : {{cost * quantity}} Rs</p>
+         <p>Roll No: {{student.rollno}}</p>
+         <p>Marks(Math): {{marks[3]}}</p>
+      </div>
+
+
+
+===================Controllers===============
+
+div ng-app = "" ng-controller = "studentController">
+   ...
+</div>
+
+=============
+<script>
+   function studentController($scope) {
+      $scope.student = {
+         firstName: "Mahesh",
+         lastName: "Parashar",
+         
+         fullName: function() {
+            var studentObject;
+            studentObject = $scope.student;
+            return studentObject.firstName + " " + studentObject.lastName;
+         }
+      };
+   }
+</script>
+
+=========html code===========
+Enter first name: <input type = "text" ng-model = "student.firstName"><br>
+Enter last name: <input type = "text" ng-model = "student.lastName"><br>
+<br>
+You are entering: {{student.fullName()}}
+
+
+============exmple here show=============
+<head>
+      <title>Angular JS Controller</title>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+   </head>
+   
+   <body>
+      <h2>AngularJS Sample Application</h2>
+      
+      <div ng-app = "mainApp" ng-controller = "studentController">
+         Enter first name: <input type = "text" ng-model = "student.firstName"><br><br>
+         Enter last name: <input type = "text" ng-model = "student.lastName"><br>
+         <br>
+         
+         You are entering: {{student.fullName()}}
+      </div>
+      
+      <script>
+         var mainApp = angular.module("mainApp", []);
+         
+         mainApp.controller('studentController', function($scope) {
+            $scope.student = {
+               firstName: "Mahesh",
+               lastName: "Parashar",
+               
+               fullName: function() {
+                  var studentObject;
+                  studentObject = $scope.student;
+                  return studentObject.firstName + " " + studentObject.lastName;
+               }
+            };
+         });
+      </script>
+      
+   </body>
+==================Filters=================
+Filters are used to change modify the data and can be clubbed in expression or directives using pipe character.
+
+1)	uppercase	converts a text to upper case text.
+2)	lowercase	converts a text to lower case text.
+3)	currency	formats text in a currency format.
+4)	filter	filter the array to a subset of it based on provided criteria.
+5)	orderby	orders the array based on provided criteria.
+
+============uppercase filter==============
+
+Enter first name:<input type = "text" ng-model = "student.firstName">
+Enter last name: <input type = "text" ng-model = "student.lastName">
+Name in Upper Case: {{student.fullName() | uppercase}}
+
+=================lowercase filter==============
+
+Enter first name:<input type = "text" ng-model = "student.firstName">
+Enter last name: <input type = "text" ng-model = "student.lastName">
+Name in Lower Case: {{student.fullName() | lowercase}}
+
+================currency filter==========
+Enter fees: <input type = "text" ng-model = "student.fees">
+fees: {{student.fees | currency}}
+
+=======================filter filter===========
+
+Enter subject: <input type = "text" ng-model = "subjectName">
+Subject:
+<ul>
+  <li ng-repeat = "subject in student.subjects | filter: subjectName">
+     {{ subject.name + ', marks:' + subject.marks }}
+  </li>
+</ul>
+
+====================orderby filter=============
+
+<ul>
+  <li ng-repeat = "subject in student.subjects | orderBy:'marks'">
+     {{ subject.name + ', marks:' + subject.marks }}
+  </li>
+</ul>
+
+
+<h2>AngularJS Sample Application</h2>
+      <div ng-app = "mainApp" ng-controller = "studentController">
+         <table border = "0">
+            <tr>
+               <td>Enter first name:</td>
+               <td><input type = "text" ng-model = "student.firstName"></td>
+            </tr>
+            
+            <tr>
+               <td>Enter last name: </td>
+               <td><input type = "text" ng-model = "student.lastName"></td>
+            </tr>
+            
+            <tr>
+               <td>Enter fees: </td>
+               <td><input type = "text" ng-model = "student.fees"></td>
+            </tr>
+            
+            <tr>
+               <td>Enter subject: </td>
+               <td><input type = "text" ng-model = "subjectName"></td>
+            </tr>
+         </table>
+         <br/>
+         
+         <table border = "0">
+            <tr>
+               <td>Name in Upper Case: </td><td>{{student.fullName() | uppercase}}</td>
+            </tr>
+         
+            <tr>
+               <td>Name in Lower Case: </td><td>{{student.fullName() | lowercase}}</td>
+            </tr>
+         
+            <tr>
+               <td>fees: </td><td>{{student.fees | currency}}
+               </td>
+            </tr>
+				
+            <tr>
+               <td>Subject:</td>
+
+               <td>
+                  <ul>
+                     <li ng-repeat = "subject in student.subjects | filter: subjectName |orderBy:'marks'">
+                        {{ subject.name + ', marks:' + subject.marks }}
+                     </li>
+                  </ul>
+               </td>
+            </tr>
+         </table>
+         
+      </div>
+      
+      <script>
+         var mainApp = angular.module("mainApp", []);
+         
+         mainApp.controller('studentController', function($scope) {
+            $scope.student = {
+               firstName: "Mahesh",
+               lastName: "Parashar",
+               fees:500,
+               
+               subjects:[
+                  {name:'Physics',marks:70},
+                  {name:'Chemistry',marks:80},
+                  {name:'Math',marks:65}
+               ],
+               
+               fullName: function() {
+                  var studentObject;
+                  studentObject = $scope.student;
+                  return studentObject.firstName + " " + studentObject.lastName;
+               }
+            };
+         });
+      </script>
+
+===================Tables=================
+
+<div ng-app = "mainApp" ng-controller = "studentController">
+         
+         <table border = "0">
+            <tr>
+               <td>Enter first name:</td>
+               <td><input type = "text" ng-model = "student.firstName"></td>
+            </tr>
+            
+            <tr>
+               <td>Enter last name: </td>
+               <td>
+                  <input type = "text" ng-model = "student.lastName">
+               </td>
+            </tr>
+            
+            <tr>
+               <td>Name: </td>
+               <td>{{student.fullName()}}</td>
+            </tr>
+            
+            <tr>
+               <td>Subject:</td>
+					
+               <td>
+                  <table>
+                     <tr>
+                        <th>Name</th>.
+                        <th>Marks</th>
+                     </tr>
+                     
+                     <tr ng-repeat = "subject in student.subjects">
+                        <td>{{ subject.name }}</td>
+                        <td>{{ subject.marks }}</td>
+                     </tr>
+							
+                  </table>
+               </td>
+					
+            </tr>
+         </table>
+         
+      </div>
+      
+      <script>
+         var mainApp = angular.module("mainApp", []);
+         
+         mainApp.controller('studentController', function($scope) {
+            $scope.student = {
+               firstName: "Mahesh",
+               lastName: "Parashar",
+               fees:500,
+               
+               subjects:[
+                  {name:'Physics',marks:70},
+                  {name:'Chemistry',marks:80},
+                  {name:'Math',marks:65},
+                  {name:'English',marks:75},
+                  {name:'Hindi',marks:67}
+               ],
+               
+               fullName: function() {
+                  var studentObject;
+                  studentObject = $scope.student;
+                  return studentObject.firstName + " " + studentObject.lastName;
+               }
+            };
+         });
+      </script>
+
+=================HTML DOM=============
+
+1)	ng-disabled	disables a given control.
+2)	ng-show	shows a given control.
+3)	ng-hide	hides a given control.
+4)	ng-click	represents a AngularJS click event
+
+=================ng-show directive===========
+
+input type = "checkbox" ng-model = "showHide1">Show Button
+<button ng-show = "showHide1">Click Me!</button>
+
+=================ng-hide directive=============
+
+<input type = "checkbox" ng-model = "showHide2">Hide Button
+<button ng-hide = "showHide2">Click Me!</button>
+
+
+===================ng-click directive============
+
+<p>Total click: {{ clickCounter }}</p>
+<button ng-click = "clickCounter = clickCounter + 1">Click Me!</button>
+
+
+===============
+
+<div ng-app = "">
+         
+         <table border = "0">
+            <tr>
+               <td><input type = "checkbox" ng-model = "enableDisableButton">Disable Button</td>
+               <td><button ng-disabled = "enableDisableButton">Click Me!</button></td>
+            </tr>
+            
+            <tr>
+               <td><input type = "checkbox" ng-model = "showHide1">Show Button</td>
+               <td><button ng-show = "showHide1">Click Me!</button></td>
+            </tr>
+            
+            <tr>
+               <td><input type = "checkbox" ng-model = "showHide2">Hide Button</td>
+               <td><button ng-hide = "showHide2">Click Me!</button></td>
+            </tr>
+            
+            <tr>
+               <td><p>Total click: {{ clickCounter }}</p></td>
+               <td><button ng-click = "clickCounter = clickCounter + 1">Click Me!</button></td>
+            </tr>
+         </table>
+         
+      </div>
+      
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+      
+
