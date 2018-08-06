@@ -1,0 +1,380 @@
+============ionic=========
+
+1)    npm install -g cordova ionic 
+
+
+ionic start myApp blank --type ionic1
+
+ionic start myApp tabs --type ionic1
+
+ionic start myApp sidemenu --type ionic1
+
+cd myApp
+ionic cordova platform add ios
+ionic cordova build ios
+ionic cordova emulate ios
+
+ionic serve --lab -address localhost
+
+
+============== CSS Components========
+ <div class = "bar bar-header bar-calm">
+   ...
+</div>
+
+=============Content==========
+
+Almost every mobile app contains some fundamental elements. Usually those elements include a header and a footer that will cover the top and the bottom part of the screen. 
+
+<div class = "bar bar-header"> 
+   <h1 class = "title">Header</h1> 
+</div>
+ 
+<div class = "list"> 
+   <label class = "item item-input"> 
+      <input type = "text" placeholder = "Placeholder 1" /> 
+   </label>
+   
+   <label class = "item item-input"> 
+      <input type = "text" placeholder = "Placeholder 2" /> 
+   </label> 
+</div>
+
+<div class = "bar bar-footer"> 
+   <h1 class = "title">Footer</h1> 
+</div>
+
+================Header===============
+
+e Ionic header bar is located on top of the screen. It can contain title, icons, buttons or some other elements on top of it. 
+
+<div class = "bar bar-header">
+   <h1 class = "title">Header</h1>
+</div>
+
+===================Header Colors============
+
+<div class = "bar bar-header bar-positive">
+   <h1 class = "title">Header</h1>
+</div>
+
+
+bar-light		To be used for white color	 
+bar-stable		To be used for light grey color	 
+bar-positive	To be used for blue color	 
+bar-calm		To be used for light blue color	 
+bar-balanced	To be used for green color	 
+bar-energized	To be used for yellow color	 
+bar-assertive	To be used for red color	 
+bar-royal		To be used for violet color	 
+bar-dark
+
+	
+============Header Elements=======
+
+<div class = "bar bar-header bar-positive">
+   <button class = "button icon ion-navicon"></button>
+   <h1 class = "title">Header Buttons</h1>
+   <button class = "button icon ion-home"></button>
+</div>
+
+============================Sub Header=========
+
+<div class = "bar bar-header bar-positive">
+   <button class = "button icon ion-navicon"></button>
+   <h1 class = "title">Header Buttons</h1>
+   <button class = "button icon ion-home"></button>
+</div>
+
+<div class = "bar bar-subheader bar-assertive">
+   <h2 class = "title">Sub Header</h2>
+</div>
+
+============Footer=========
+
+<div class = "bar bar-footer">
+   <h1 class = "title">Footer</h1>
+</div>
+================Footer Colors=======
+<div class = "bar bar-footer bar-assertive">
+   <h1 class = "title">Footer</h1>
+</div>
+=========Footer Elements==========
+
+<div class = "bar bar-footer bar-assertive">
+   <button class = "button icon ion-navicon"></button>
+   <button class = "button icon ion-home"></button>
+   <button class = "button icon ion-star"></button>
+   <button class = "button icon ion-checkmark-round"></button>
+</div>
+
+<div class = "bar bar-footer bar-assertive">
+   <button class = "button icon ion-navicon pull-right"></button>
+</div>
+
+==============Lists==========
+
+<div class = "list">
+   <div class = "item item-icon-left">
+      <i class = "icon ion-home"></i>
+      Left side Icon
+   </div>
+
+   <div class = "item item-icon-right">
+      <i class = "icon ion-star"></i>
+      Right side Icon
+   </div>
+
+   <div class = "item item-icon-left item-icon-right">
+      <i class = "icon ion-home"></i>
+      <i class = "icon ion-star"></i>
+      Both sides Icons
+   </div>
+   
+   <div class = "item item-icon-left">
+      <i class = "icon ion-home"></i>
+      <span class = "text-note">Text note</span>
+   </div>
+</div>
+
+===========Card==========
+
+<div class = "card">
+   <div class = "item item-avatar">
+      <img src = "my-image.png">
+      <h2>Card Name</h2>
+   </div>
+
+   <div class = "item item-body">
+      <img class = "full-image" src = "my-image.png">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eget 
+      pharetra tortor. Proin quis eros imperdiet, facilisis nisi in, tincidunt orci. 
+      Nam tristique elit massa, quis faucibus augue finibus ac.
+   </div>
+</div>
+
+==================Forms===========
+
+<div class = "list">
+   <label class = "item item-input">
+      <input type = "text" placeholder = "Placeholder 1" />
+   </label>
+
+   <label class = "item item-input">
+      <input type = "text" placeholder = "Placeholder 2" />
+   </label>
+</div>
+================Stacked Label=======
+
+
+<div class = "list">
+   <label class = "item item-input item-stacked-label">
+      <span class = "input-label">Label 1</span>
+      <input type = "text" placeholder = "Placeholder 1" />
+   </label>
+
+   <label class = "item item-input item-stacked-label">
+      <span class = "input-label">Label 2</span>
+      <input type = "text" placeholder = "Placeholder 2" />
+   </label>
+</div>
+
+================Inset inputs==========
+
+<div class = "list">
+   <div class = "item item-input-inset">
+      <label class = "item item-input-wrapper">		
+         <input type = "text" placeholder = "Placeholder 1" />
+      </label>
+      <button class = "button">button</button>
+   </div>
+
+   <div class = "item item-input-inset">
+      <label class = "item item-input-wrapper">
+         <i class = "icon ion-edit placeholder-icon"></i>
+         <input type = "text" placeholder = "Placeholder 2" />
+      </label>
+   </div>
+</div>
+
+==========Range==========
+
+div class = "item range">
+   <input type = "range" name = "range1">
+</div>
+
+
+
+<div class = "item range">
+   <i class = "icon ion-volume-low"></i>
+   <input type = "range" name = "volume">
+   <i class = "icon ion-volume-high"></i>
+</div>
+
+=======================Select=============
+
+<label class = "item item-input item-select">
+   <div class = "input-label">
+      Select
+   </div>
+	
+   <select>
+      <option>Option 1</option>
+      <option selected>Option 2</option>
+      <option>Option 3</option>
+   </select>
+</label>
+
+=============vTabs===========
+
+<div class = "tabs">
+   <a class = "tab-item">
+      Tab 1
+   </a>
+	
+   <a class = "tab-item">
+      Tab 2
+   </a>
+
+   <a class = "tab-item">
+      Tab 3
+   </a>
+</div>
+================Adding Icons========
+
+<div class = "tabs tabs-icon-only">
+   <a class = "tab-item">
+      <i class = "icon ion-home"></i>
+   </a>
+	
+   <a class = "tab-item">
+      <i class = "icon ion-star"></i>
+   </a>
+	
+   <a class = "tab-item">
+      <i class = "icon ion-planet"></i>
+   </a>
+</div>
+============================Striped Tabs================
+
+<div class = "tabs-striped tabs-background-positive tabs-color-light">
+   <div class = "tabs">
+      <a class = "tab-item">
+         <i class = "icon ion-home"></i>
+      </a>
+		
+      <a class = "tab-item active">
+         <i class = "icon ion-star"></i>
+      </a>
+		
+      <a class = "tab-item">
+         <i class = "icon ion-planet"></i>
+      </a>
+   </div>
+</div>
+
+===================Grid===============
+
+
+Working with the Ionic Grid System is straightforward. There are two main classes – row for working with rows and col for columns.
+
+==============Simple Grid============
+
+<div class = "row">
+   <div class = "col">col 1</div>
+   <div class = "col">col 2</div>
+   <div class = "col">col 3</div>
+   <div class = "col">col 4</div>
+   <div class = "col">col 5</div>
+</div>
+
+<div class = "row">
+   <div class = "col">col 1</div>
+   <div class = "col">col 2</div>
+   <div class = "col">col 3</div>
+</div>
+
+=====================Column Sizes=========
+
+<div class = "row">
+   <div class = "col col-50">col 1</div>
+   <div class = "col">col 2</div>
+   <div class = "col">col 3</div>
+   <div class = "col">col 4</div>
+   <div class = "col">col 5</div>
+</div>
+
+<div class = "row">
+   <div class = "col col-50">col 1</div>
+   <div class = "col">col 2</div>
+   <div class = "col">col 3</div>
+</div>
+
+=========================
+
+Column Percentage Classnames
+Class Name	Percentage Used
+col-10		10%
+col-20		20%
+col-25		25%
+col-33		33.3333%
+col-50		50%
+col-67		66.6666%
+col-75		75%
+col-80		80%
+col-90		90%
+			
+===================Responsive Grid===========
+
+<div class = "row responsive-sm">
+   <div class = "col col-25">col 1</div>
+   <div class = "col">col 2</div>
+   <div class = "col">col 3</div>
+   <div class = "col">col 4</div>
+   <div class = "col">col 5</div>
+</div>
+
+<div class = "row responsive-sm">
+   <div class = "col">col 1</div>
+   <div class = "col">col 2</div>
+   <div class = "col">col 3</div>
+</div>
+=======================
+<div class = "row">
+   <div class = "col col-top">col 1</div>
+   <div class = "col col-center">col 2</div>
+   <div class = "col col-bottom">col 3</div>
+   <div class = "col">col 4</div>
+   <div class = "col">col 5</div>
+</div>
+
+<div class = "row">
+   <div class = "col col-top">col 1</div>
+   <div class = "col col-center">col 2</div>
+   <div class = "col col-bottom">col 3</div>
+</div>
+
+=================icons============
+https://ionicons.com/
+
+<i class="icon ion-chevron-up"></i>	
+<i class="icon ion-chevron-right"></i>	
+<i class="icon ion-chevron-down"></i>	
+<i class="icon ion-chevron-left"></i>
+
+============Padding=========
+
+
+Class Name	Class Info
+padding		Adds padding around every side.
+padding-vertical	Adds padding to the top and bottom.
+padding-horizontal	Adds padding to the left and right.
+padding-top	Adds padding to the top.
+padding-right	Adds padding to the right.
+padding-bottom	Adds padding to the bottom.
+padding-left	Adds padding to the left.
+	
+
+<div class = "button button-block padding">Padding</div>
+<div class = "button button-block">No padding</div>
+

@@ -1,0 +1,260 @@
+===============Ionic Javascript=============	
+
+Javascript Action Sheet
+
+In the following example, we will show you how to use the Ionic action sheet. First we will inject $ionicActionSheet service as a dependency to our controller, then we will create $scope.showActionSheet()
+
+===============================Controller Code=========
+.controller('myCtrl', function($scope, $ionicActionSheet) {
+
+   $scope.triggerActionSheet = function() {
+
+      // Show the action sheet
+      var showActionSheet = $ionicActionSheet.show({
+         buttons: [
+            { text: 'Edit 1' },
+            { text: 'Edit 2' }
+         ],
+			
+         destructiveText: 'Delete',
+         titleText: 'Action Sheet',
+         cancelText: 'Cancel',
+			
+         cancel: function() {
+            // add cancel code...
+         },
+			
+         buttonClicked: function(index) {
+            if(index === 0) {
+               // add edit 1 code
+            }
+				
+            if(index === 1) {
+               // add edit 2 code
+            }
+         },
+			
+         destructiveButtonClicked: function() {
+            // add delete code..
+         }
+      });
+   };
+})
+
+<button class = "button">Action Sheet Button</button>
+
+=========================Javascript Content=============
+
+ ============= Javascript Navigation==========
+
+Navigation can be configured in the app.js file. If you are using one of the Ionic templates, you will notice the $stateProvider service injected into the app config.
+
+===============app.js Code==========
+
+.config(function($stateProvider) {
+   $stateProvider
+   .state('index', { url: '/', templateUrl: 'templates/home.html'})
+   .state('state1', {url: '/state1', templateUrl: 'templates/state1.html'})
+   .state('state2', {url: '/state2', templateUrl: 'templates/state2.html',});
+});
+
+==============index.html Code=============
+<ion-nav-view></ion-nav-view>
+
+When we created states in the above-mentioned example, we were using the templateUrl, so when the state is loaded, it will search for matching the template file. Now, we will open the templates folder and create a new file state1.html, which will be loaded when the app URL is changed to /state1
+
+===============state1.html Code========
+<ion-view>
+   <ion-content>
+      This is State 1 !!!
+   </ion-content>
+</ion-view>
+
+
+=====================Creating Navigation Menu========
+
+You can add a navigation bar to your app in the index.html body by adding the “ion-nav-bar” element. Inside the navigation bar, we will add the ion-nav-back-button with an icon. This will be used for returning to the previous state. The button will appear automatically when the state is changed. We will assign the goBack() function, which will use the $ionicHistory service for handling this functionality. Therefore, when the user leaves the home state and goes to state1, the back button will appear which can be taped, if the user wants to return to the home state.
+
+=================index.html Code===========
+<ion-nav-bar class = "bar-positive">
+   <ion-nav-back-button class = "button-clear" ng-click = "goBack()">
+      <i class = "icon ion-arrow-left-c"></i> Back
+   </ion-nav-back-button>
+</ion-nav-bar>
+
+=================Controller Code=========
+
+.MyCtrl($scope, $ionicHistory) {
+   $scope.goBack = function() {
+      $ionicHistory.goBack();
+   };
+} 
+===========Javascript Events==========
+
+Event Name		Event Detail
+on-hold			Called when duration of the touch is more than 500ms.
+on-tap			Called when duration of the touch is less than 250ms.
+on-double-tap		Called when there is double tap touch.
+on-touch			Called immediately when touch begins.
+on-release		Called when touch ends.
+on-drag			Called when touch is moved without releasing around the page in any direction.
+on-drag-up		Called when element is dragged up.
+on-drag-right		Called when the element is dragged to the right.
+on-drag-left		Called when the element is dragged to the left.
+on-drag-down		Called when the element is dragged down.
+on-swipe			Called when any dragging has high velocity moving in any direction.
+on-swipe-up		Called when any dragging has high velocity moving up.
+on-swipe-right		Called when any dragging has high velocity moving to the right.
+on-swipe-left		Called when any dragging has high velocity moving to the left.
+on-swipe-down		Called when any dragging has high velocity moving down.
+
+==========================================
+<button on-touch = "onTouchFunction()" class="button">Test</button>
+
+$scope.onTouchFunction = function() {
+   // Do something...
+}
+
+===================Javascript Keyboard============
+
+you can use the 
+hide-on-keyboard-open 
+class
+
+<label class = "item item-input">
+   <input type = "text" placeholder = "Input 1">
+</label>
+
+<button class = "button button-block hide-on-keyboard-open">
+   button
+</button>
+
+===================Javascript List============
+
+<ion-list>
+   <ion-item>
+      Item 1 
+   </ion-item>
+	
+   <ion-item>
+      Item 2 
+   </ion-item>
+	
+   <ion-item>
+      Item 3  
+   </ion-item>
+</ion-list>
+
+================Delete Button===========
+
+<ion-list show-delete = "showDelete1">
+   <ion-item>
+      <ion-delete-button class = "ion-minus-circled"></ion-delete-button>
+      Item 1
+   </ion-item>
+	
+   <ion-item>
+      <ion-delete-button class = "ion-minus-circled"></ion-delete-button>
+      Item 2
+   </ion-item>
+</ion-list>
+
+<ion-toggle ng-model = "showDelete2">
+   Show Delete 2
+</ion-toggle>
+
+=================Reorder Button===========
+
+<ion-list show-reorder = "true">
+   <ion-item ng-repeat = "item in items">
+      Item {{item.id}}
+      <ion-reorder-button class = "ion-navicon" 
+         on-reorder = "moveItem(item, $fromIndex, $toIndex)"></ion-reorder-button>
+   </ion-item>
+</ion-list>
+
+$scope.items = [
+   {id: 1},
+   {id: 2},
+   {id: 3},
+   {id: 4}
+];
+
+$scope.moveItem = function(item, fromIndex, toIndex) {
+   $scope.items.splice(fromIndex, 1);
+   $scope.items.splice(toIndex, 0, item);
+};
+
+=====================vJavaScript Slide Box=============
+
+The usage of the slide box is simple. You just need to add ion-slide-box as a container and ion-slide with box class inside that container. We will add height and border to our boxes for better visibility
+
+====================HTML Code========
+
+<ion-slide-box>
+
+   <ion-slide>
+      <div class = "box box1">
+         <h1>Box 1</h1>
+      </div>
+   </ion-slide>
+
+   <ion-slide>
+      <div class = "box box2">
+         <h1>Box 2</h1>
+      </div>
+   </ion-slide>
+
+   <ion-slide>
+      <div class = "box box3">
+         <h1>Box 3</h1>
+      </div>
+   </ion-slide>
+
+</ion-slide-box>
+
+.box1, box2, box3 {
+   height: 300px;
+   border: 2px solid blue;
+}
+
+
+===================Delegate Methods=========
+
+Attribute	Type	Details
+does-continue	Boolean	Should slide box loop when first or last box is reached.
+auto-play	Boolean	Should slide box automatically slide.
+slide-interval	number	Time value between auto slide changes in milliseconds. Default value is 4000.
+show-pager	Boolean	Should pager be visible.
+pager-click	expression	Called when a pager is tapped (if pager is visible). $index is used to match with different slides.
+on-slide-changed	expression	Called when slide is changed. $index is used to match with different slides.
+active-slide	expression	Used as a model to bind the current slide index to.
+delegate-handle	string	Used for slide box identification with $ionicSlideBoxDelegate.
+
+
+===============Controller Code============
+   $scope.nextSlide = function() {
+      $ionicSlideBoxDelegate.next();
+   }
+})
+
+<button class = "button button-icon icon ion-navicon" ng-click = "nextSlide()"></button>
+
+
+
+
+Method	Parameters	Type	Details
+slide(parameter1, parameter2)	to, speed	number, number	Parameter to represents the index to slide to. speed determines how fast is the change in milliseconds.
+enableSlide(parameter1)	shouldEnable	boolean	Used for enambling or disabling sliding.
+previous(parameter1)	speed	number	The value in miliseconds the change should take.
+stop()	/	/	Used to stop the sliding.
+start()	/	/	Used to start the sliding.
+currentIndex()	/	number	Returns index of the curent slide.
+slidesCount()	/	number	Returns total number of the slides.
+$getByHandle(parameter1)	handle	string	
+Used to connect methods to the particular slide box with the same handle.
+
+$ionicSlideBoxDelegate.$getByHandle ('my-handle').start();
+
+
+
