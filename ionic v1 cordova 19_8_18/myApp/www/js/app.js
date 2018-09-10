@@ -16,17 +16,18 @@ angular.module('starter', ['ionic','ngCordova'])
   });
 })
 
-.controller('mainController', function($scope,$cordovaInAppBrowser,$cordovaGeolocation) {
+.controller('mainController', function($scope,$cordovaInAppBrowser) {
   console.log("main controller");
 
-    
-   var options = {
+  var options = {
     location: 'yes',
     clearcache: 'yes',
     toolbar: 'no'
  };
 
  $scope.openBrowser = function() {
+  console.log("app controller");
+
     $cordovaInAppBrowser.open('http://google.com', '_blank', options)
   
     .then(function(event) {
@@ -35,41 +36,10 @@ angular.module('starter', ['ionic','ngCordova'])
   
     .catch(function(event) {
        // error
+       
     });
  }
-
-
-
-      var posOptions = {timeout: 10000, enableHighAccuracy: false};
-      $cordovaGeolocation
-      .getCurrentPosition(posOptions)
-
-      .then(function (position) {
-          var lat  = position.coords.latitude
-          var long = position.coords.longitude
-          console.log(lat + '   ' + long)
-      }, function(err) {
-          console.log(err)
-      });
-
-      var watchOptions = {timeout : 3000, enableHighAccuracy: false};
-      var watch = $cordovaGeolocation.watchPosition(watchOptions);
-
-      watch.then(
-          null,
-        
-          function(err) {
-            console.log(err)
-          },
-        
-          function(position) {
-            var lat  = position.coords.latitude
-            var long = position.coords.longitude
-            console.log(lat + '' + long)
-          }
-      );
-
-      watch.clearWatch();
+  
  
  
 })
