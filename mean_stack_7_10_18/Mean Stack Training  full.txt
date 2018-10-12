@@ -1,0 +1,172 @@
+mean stack training..
+
+========controller.js==============
+
+
+app.controller('XYZ', function($scope,$http,$location,$window,$routeParams) {
+
+    console.log("MAIN CONTROLLER");
+
+1) ===============form values=========
+
+     $scope.addContact() = function() {
+         console.log("here controler send requst Add form");
+         console.log($scope.contact);
+     };
+
+2)   =====================get date in  controller ==============
+
+      $http.get('/home').success(function(response){
+
+		$scope.homes = response;
+
+                                      console.log("get students Patient"); 
+		$scope.admission="";
+
+   	 });
+
+    });
+
+3)  step 
+
+ ========================sending  data from ===================
+
+   $scope.submit =function() {
+
+                      // $scope.shah =studentSetup.studenOne.admission;
+                        console.log("here controler send requst ");
+                        console.log($scope.admission);
+
+                $http.post('/home',$scope.admission).success(function(response) {
+			   console.log(response);
+                                                        console.log("http here");
+			    // $location.path("/");
+				//    $window.location.href = '/';
+				//  alert('Add data in Patient');
+		   });
+       
+                    };
+
+=================================update controllers============================
+
+    $scope.studetsTestSumits= function () {
+            //console.log($scope.admission._id);
+
+          var id = $routeParams.id;
+           console.log($scope.admission);
+           console.log(id);
+
+           $http.put('/home/studentsTests/'+id,$scope.admission).success(function(response) {
+
+              $scope.admission=response;
+                console.log(" putt send");
+                //console.log(response);
+		// 	   //alert('Updated data in Patient'); 
+		// 	   $window.location.href = '/index.html';
+                });		   
+};
+=========================detete controller=========
+
+
+$scope.removeData = function (id) {
+
+                 console.log("delete id here succes");
+                  console.log(id);
+         //   $http.delete('/home/allStudent/' + id).success(function(response) {
+        //         console.log(response);
+       // 		$window.location.href = '/index.html';
+     // 		//   alert('Deleted data in Patient');
+			   
+       //    });
+
+           $http.delete('/home/allStudent/'+id).success(function(response){
+
+          //window.location.href='/#home/allStudent';
+
+            window.location.href='/#home/allStudent';
+        // console.log(response);
+
+		//   console.log(id);
+		});
+	  }; 
+
+===============================post data ========================
+ $scope.addContact = function() {
+        console.log("here controler send requst addContact");
+        //console.log($scope.contact);
+              
+
+
+        // 	   $http.post('/contactlist',$scope.contact).success(function(response) {
+        // 		   console.log(response);
+        // 		    $location.path("/");
+        // 			   $window.location.href = '/';
+        // 			//  alert('Add data in Patient');
+        // 	   });
+    };
+});
+
+==============================routes.js=============================
+
+//app.get('/home', home.findById)
+router.post('/', homeController.addHome);
+router.get('/allStudent', homeController.allStudentsfindAll);
+router.delete('/allStudent/:id', homeController.allStudentsdelete);
+router.get('/studentsTests/:id', homeController.studentsTestsfindById);
+router.put('/studentsTests/:id',homeController.studenstTestSend);
+
+
+// exports.findById = function() {};
+// exports.add = function() {};
+// exports.update = function() {};
+// exports.delete = function() {};
+
+==================controller.js==========
+
+exports.addHome = function(req, res) {
+      	console.log("revive requst srver post");
+    console.log(req.body);
+  Home.create(req.body, function (err, responce) {
+    //if (err) return console.log(err);
+     res.json(responce);
+     console.log("shah king");
+  });
+};
+
+exports.allStudentsfindAll = function(req, res){
+  Home.find({},function(err, results) {
+    //return res.send(results);
+    res.json(results);
+  });
+};
+
+exports.allStudentsdelete = function(req, res){
+  var id = req.params.id;
+  console.log(id);
+  Home.remove({'_id':id},function(result) {
+    res.json(result);
+  });
+};
+
+
+exports.studentsTestsfindById = function(req, res){
+  var id = req.params.id;
+  console.log(id);
+  Home.findOne({'_id':id},function(err, result) {
+     res.json(result);
+  });
+};
+
+exports.studenstTestSend = function(req, res) {
+  var id = req.params.id;
+  var updates = req.body;
+  console.log(id);
+  console.log(updates);
+
+  Home.update({"_id":id}, { $push : { 'Tests':updates }},
+    function (err, numberAffected) {
+      if (err) return console.log(err);
+     // console.log('Updated %d musicians', numberAffected);
+      res.send(numberAffected);
+  });
+};
